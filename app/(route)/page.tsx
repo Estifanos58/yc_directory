@@ -15,7 +15,7 @@ export default async function Home({searchParams}: {searchParams: Promise<{query
     author: {_id: 1, name: "Tom"},
     _id: 1,
     description: "This is a description",
-    image: "",
+    image: "https://images.wallpapersden.com/image/download/astro-bot-rescue-mission-robot_bGtlbGeUmZqaraWkpJRmbmdlrWZlbWU.jpg",
     category: "Robots",
     title: "We Robots",
   },
