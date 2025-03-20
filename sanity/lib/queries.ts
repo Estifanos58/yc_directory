@@ -27,6 +27,7 @@ export const STARTUP_BY_ID_QUERY = defineQuery(`
     author -> {
         _id,
         name,
+        username,
         image,
         bio},
     views,
