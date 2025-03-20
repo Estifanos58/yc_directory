@@ -1,16 +1,16 @@
-import Image from "next/image";
 import SearchForm from "@/components/SearchForm";
-import StartupCard from "@/components/StartupCard";
-import { client } from "@/sanity/lib/client";
+import StartupCard, { StartupCardType } from "@/components/StartupCard";
 import { STARTUP_QUERY } from "@/sanity/lib/queries";
-// import { heading } from "@/tailwind-utils";
+import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+
 
 
 export default async function Home({searchParams}: {searchParams: Promise<{query?: string}>}) {
 
   const query = (await searchParams).query;
+  const params = {search: query || null}; 
 
-  const posts = await client.fetch(STARTUP_QUERY);
+  const {data: posts} = await sanityFetch({query: STARTUP_QUERY, params});
 
 
   return (
@@ -39,19 +39,19 @@ export default async function Home({searchParams}: {searchParams: Promise<{query
       </ul>
 
     </section>
-    
+    <SanityLive/>
     </>
   );
 }
 
 
-export type StartupCardType =  {
-  _createdAt: Date,
-    views: number,
-    author: {_id: number, name: string},
-    _id: number,
-    description: string,
-    image: string,
-    category: string,
-    title: string,
-}
+// export type StartupCardType =  {
+//   _createdAt: Date,
+//     views: number,
+//     author: {_id: number, name: string},
+//     _id: number,
+//     description: string,
+//     image: string,
+//     category: string,
+//     title: string,
+// }
