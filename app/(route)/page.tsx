@@ -12,20 +12,7 @@ export default async function Home({searchParams}: {searchParams: Promise<{query
 
   const posts = await client.fetch(STARTUP_QUERY);
 
-//   const posts = [
-//     {
-//     _createdAt: new Date(),
-//     views: 55,
-//     author: {_id: 1, name: "Tom"},
-//     _id: 1,
-//     description: "This is a description",
-//     image: "https://images.wallpapersden.com/image/download/astro-bot-rescue-mission-robot_bGtlbGeUmZqaraWkpJRmbmdlrWZlbWU.jpg",
-//     category: "Robots",
-//     title: "We Robots",
-//   },
-// ]
 
-console.log(JSON.stringify(posts), "This is server")
   return (
     <>
     <section className="pink_container">

@@ -4,7 +4,7 @@ export const STARTUP_QUERY = defineQuery(`*[_type== "startup" && defined(slug.cu
     _id,
      title,
     slug,
-    _createAt,
+    _createdAt,
     author -> {
         _id,
         name,
