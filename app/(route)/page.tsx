@@ -1,6 +1,8 @@
 import Image from "next/image";
 import SearchForm from "@/components/SearchForm";
 import StartupCard from "@/components/StartupCard";
+import { client } from "@/sanity/lib/client";
+import { STARTUP_QUERY } from "@/sanity/lib/queries";
 // import { heading } from "@/tailwind-utils";
 
 
@@ -8,18 +10,22 @@ export default async function Home({searchParams}: {searchParams: Promise<{query
 
   const query = (await searchParams).query;
 
-  const posts = [
-    {
-    _createdAt: new Date(),
-    views: 55,
-    author: {_id: 1, name: "Tom"},
-    _id: 1,
-    description: "This is a description",
-    image: "https://images.wallpapersden.com/image/download/astro-bot-rescue-mission-robot_bGtlbGeUmZqaraWkpJRmbmdlrWZlbWU.jpg",
-    category: "Robots",
-    title: "We Robots",
-  },
-]
+  const posts = await client.fetch(STARTUP_QUERY);
+
+//   const posts = [
+//     {
+//     _createdAt: new Date(),
+//     views: 55,
+//     author: {_id: 1, name: "Tom"},
+//     _id: 1,
+//     description: "This is a description",
+//     image: "https://images.wallpapersden.com/image/download/astro-bot-rescue-mission-robot_bGtlbGeUmZqaraWkpJRmbmdlrWZlbWU.jpg",
+//     category: "Robots",
+//     title: "We Robots",
+//   },
+// ]
+
+console.log(JSON.stringify(posts), "This is server")
   return (
     <>
     <section className="pink_container">
