@@ -18,6 +18,7 @@ const StartupForm = () => {
     const {toast} = useToast();
     const router = useRouter();
 
+
     const handleFormSubmit = async (prevState: any, formData: FormData) => {
         try {
             const formValue = {
@@ -34,11 +35,11 @@ const StartupForm = () => {
             const result = await createPitch(prevState, formData, pitch);
 
             if(result.status === "SUCCESS"){
-                toast({
+              toast({
                 title: "Success",
                 description: "Your startup pitch has been created successfully",
-            });
-            router.push(`/startup/${result._id}`)
+              });
+              router.push(`/startup/${result._id}`)
             }
             setErrors({});
             return result;

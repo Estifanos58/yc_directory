@@ -34,7 +34,7 @@ const Navbar = async ()=>{
 
                                 <Link href={`/user/${session?.id}`}>
                                     <Avatar className="size-10">
-                                        <AvatarImage src={session?.user?.image} alt={session?.user?.name || ''}/>
+                                        <AvatarImage src={session?.user?.image} alt={session?.user?.name || ''} width={45} height={50} className="rounded-full"/>
                                         <AvatarFallback>AV</AvatarFallback>
                                     </Avatar>
                                 </Link>                       
